@@ -11,6 +11,9 @@ print("There are two doors. Do you go through door 1 or door 2?")
 def wrong_input():
 	print("You are not so good with numbers, %s, are you?" % (name))
 
+def dead(death_message):
+	print(death_message, "Game over.")
+
 door = input("> ")
 
 if door == "1":
@@ -24,7 +27,7 @@ if door == "1":
 	if answer == "1":
 		print("Congratulations, %s, you found a new friend!" % (name))
 	elif answer == "2":
-		print("Sorry, %s, the vampire is faster. You become her dinner." % (name))
+		dead("Sorry, %s, the vampire is faster. You become her dinner." % (name))
 	else:
 		wrong_input()
 
@@ -38,6 +41,16 @@ elif door == "2":
 
 	if answer == "1":
 		print("You discover that the box is filled with gold and jewels. Congratulations, %s you are now rich." % (name))
+		print("In order to keep the treasure, you have to guess my favourite colour.")
+
+		answer = input ("> ")
+
+		if answer == "red" or answer == "blue":
+			print("Congratulations, the treasure is yours.")
+
+		else:
+			dead("Sorry, %s." % (name))
+
 	elif answer == "2":
 		print("There is a skeleton behind the door.")
 		print("What do you do, %s?" % (name))
@@ -47,7 +60,7 @@ elif door == "2":
 		answer = input (">")
 
 		if answer == "1":
-			print("Du Angsthase, %s! Game over." % (name))
+			dead("Du Angsthase, %s! Game over." % (name))
 		elif answer == "2":
 			print("The skeleton wakes up and says: Hi, %s. How are you?" % (name))
 		else:wrong_input()
