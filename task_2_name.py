@@ -14,6 +14,10 @@ def wrong_input():
 def dead(death_message):
 	print(death_message, "Game over.")
 
+def wrong_input_message():
+	return "You are not so good with numbers, %s, are you?" % (name)
+
+
 door = input("> ")
 
 if door == "1":
@@ -63,7 +67,8 @@ elif door == "2":
 			dead("Du Angsthase, %s! Game over." % (name))
 		elif answer == "2":
 			print("The skeleton wakes up and says: Hi, %s. How are you?" % (name))
-		else:wrong_input()
+		else:
+			dead(wrong_input_message())
 	else:
 		wrong_input()
 else:
